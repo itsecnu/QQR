@@ -1,0 +1,15 @@
+Input Question xk
+        k  : step/question number in the sequence
+        vk  : reward received after answering xk 
+  〖 v〗_inc^k: reward increment after receiving reward vk
+(〖 v〗_k ) ̅ = average ({v1,…,vk-1})
+Current reward model R (with parametersφs, φt )
+	If feedback is score or engagement then 
+	   Reward model update ws, wt, φs, φt
+	     Normalize the question and transition descriptor weights, such that they add up to 1:
+∀d∈F_s:φ_s^(d,l)=(φ_s^(d,1))/(∑_(i=1)^(〖nbins〗_s)▒φ_s^(d,i) )
+∀d∈F_s,∀l,g=1,2,…,nbinss: φ_t^(d,l,g)=(φ_t^(d,l,g))/(∑_(i=1)^(〖nbins〗_s)▒∑_(j=1)^(〖nbins〗_s)▒φ_s^(d,i,j) _ ^  )
+	   Else 
+	      Run initialization module
+	End if
+Return: updated φs andφt
