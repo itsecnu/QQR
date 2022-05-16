@@ -1,0 +1,21 @@
+Input Question bank, M
+         Planning horizon q
+         Current preference model R (with parametersφs andφt)
+         Currently presented question question0← xk
+         B: percent of questions from M to use in planning
+	Select a set of B percent of questions from M, M*, with the highest reward Rs
+	BestTrajectory=null
+	HighestExpectedPayoff = -∞
+	While computational power not exhausted do:
+	         trajectory – []
+	         for i = 1 to q do:
+	                  questioni← selected randomly from M* (avoiding repetitions)
+	                  add question to trajectory
+	         end for
+	         expectedPayoffForTrajectory=Rs(questioni)+ ∑_(i=2)^q▒ (Rt((question1,…,questioni-1),questioni)+Rs(questioni))
+	       if expectedPayoffForTrajectory> HighestExpectedPayoff then
+	           HighestExpectedPayoff= ExpectedPayoffForTrajectory
+	           BestTrajectory=trajectory
+	        end if
+	   end while
+   Return: First question in BestTrajectory
