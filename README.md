@@ -3,7 +3,7 @@ Approach to QQ recommendation
 
 Approach to QQ(Quiz Question) recommendation
 
-一种练习测验卷智能生成
+一种练习测验卷智能生成模型
 
 问题：
 
