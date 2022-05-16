@@ -1,0 +1,16 @@
+Input M= question bank
+     q= planning horizon
+zs= number of question for question preference initialization
+zt= number of question for transition preference initialization
+nbinss= number of percentile bin descriptors per question feature
+nbinst=number of percentile bin descriptors per transition feature
+B: percent of top questions to use during planning
+	Obtain GCN-LSTM based engagement prediction
+	Initialization of question weightsφs and transition weightsφt (with M,zs,zt,,nbinss,nbinst)
+	k=0
+	While user requesting another question do:
+	      k=k+1
+	      Select the next question: xk: Run Algorithm2 (with M,q,R, current question playing question0 ←xk, B)
+	      Obtain question score and engagement trend after xk: reward vk, and average reward thus far (v_k ) ̅.
+	      Update reward model R’; s parameters: φs, φt ←Run Algorithm 1(with xk, k, vk, (v_k ) ̅, φs, φt)
+End while
